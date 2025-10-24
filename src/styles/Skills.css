@@ -31,6 +31,9 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
+  justify-items: center;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .skill-card {
@@ -39,6 +42,8 @@
   border-radius: 1rem;
   border: 1px solid var(--border);
   transition: all 0.3s ease;
+  width: 100%;
+  max-width: 280px;
 }
 
 .skill-card:hover {

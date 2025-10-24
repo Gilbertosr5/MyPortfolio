@@ -1,8 +1,16 @@
 import { ExternalLink, Github } from 'lucide-react';
 import '../styles/Projects.css';
 
+interface Project {
+  title: string;
+  description: string;
+  tech: string[];
+  github: string;
+  demo?: string;
+}
+
 export const Projects = () => {
-  const projects = [
+  const projects: Project[] = [
     {
       title: 'Chat App',
       description: 'Projeto acadêmico para matéria de Redes de Computadores, desenvolvido para Universidade Paulista (UNIP), com o objetivo de fornecer um chat utilizando WebSockets.',

@@ -1,27 +1,37 @@
-import { Code2, Database, Layout, Server } from 'lucide-react';
+import { Code2, Database, Layout, Server, Smartphone, Wrench } from 'lucide-react';
 import '../styles/Skills.css';
 
 export const Skills = () => {
   const skillsCategories = [
     {
+      icon: <Code2 size={32} />,
+      title: 'Linguagens',
+      skills: ['JavaScript / TypeScript', 'Python', 'Java', 'SQL', 'HTML', 'CSS']
+    },
+    {
       icon: <Layout size={32} />,
-      title: 'Frontend',
-      skills: ['React', 'TypeScript', 'HTML/CSS', 'Tailwind CSS']
+      title: 'Frontend Web',
+      skills: ['ReactJS', 'Bootstrap', 'Sass']
+    },
+    {
+      icon: <Smartphone size={32} />,
+      title: 'Mobile',
+      skills: ['React Native']
     },
     {
       icon: <Server size={32} />,
       title: 'Backend',
-      skills: ['Node.js', 'Express', 'REST APIs', 'GraphQL']
+      skills: ['NodeJS', 'Express', 'REST APIs']
     },
     {
       icon: <Database size={32} />,
       title: 'Banco de Dados',
-      skills: ['PostgreSQL', 'MongoDB', 'Redis', 'Prisma']
+      skills: ['MySQL', 'SQL']
     },
     {
-      icon: <Code2 size={32} />,
+      icon: <Wrench size={32} />,
       title: 'Ferramentas',
-      skills: ['Git', 'Docker', 'CI/CD', 'Linux']
+      skills: ['VSCode', 'Git e GitHub', 'GitHub Copilot', 'Windows e MacOS']
     }
   ];
 
