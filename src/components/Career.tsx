@@ -3,22 +3,22 @@ import '../styles/Career.css';
 
 export const Career = () => {
   const experiences = [
-    // {
-    //   company: 'Empresa Atual',
-    //   position: 'Cargo Atual',
-    //   period: '2023 - Presente',
-    //   description: 'Descrição das suas responsabilidades e conquistas nesta posição.'
-    // },
+    {
+      company: 'IACIT',
+      position: 'Desenvolvedor FrontEnd Jr',
+      period: 'mar/2026 - Atual',
+      description: 'Desenvolvendo novas demandas do projeto da equipe, e também atuando nas soluções dos bugs.'
+    },
     {
       company: 'ConnectCorp.IT',
       position: 'Desenvolvedor Mobile',
-      period: 'maio/2024 - Atual',
+      period: 'mai/2024 - mar/2026',
       description: 'Responsável pelo setor mobile da empresa, criando e prestando manutenções para seus apps.'
     },
     {
       company: 'ConnectCorp.IT',
       position: 'Suporte',
-      period: 'jun/2023 - maio/2024',
+      period: 'jun/2023 - mai/2024',
       description: 'Prestando suporte aos clientes dos produtos da empresa.'
     }
   ];

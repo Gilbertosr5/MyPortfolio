@@ -1,102 +1,134 @@
-# React + TypeScript + Vite
+# MyPortfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfólio pessoal desenvolvido com React + TypeScript + Vite, com foco em apresentar minha identidade profissional, habilidades técnicas, projetos e trajetória.
 
-Currently, two official plugins are available:
+A aplicação foi criada como uma landing page moderna, responsiva e visualmente clean, com destaque para um layout profissional e fácil de navegar em desktop e mobile.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Sobre o projeto
 
-## React Compiler
+Este projeto funciona como uma vitrine online para compartilhar:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- apresentação pessoal e profissional
+- área de destaque para habilidades e stack
+- projetos desenvolvidos com links para repositórios
+- experiência profissional em linha do tempo
+- seção de contato para networking e oportunidades
 
-## Expanding the ESLint configuration
+A interface inclui também uma experiência dinâmica com animações leves, tema claro/escuro e visual otimizado para diferentes tamanhos de tela.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-# Portfolio Pessoal
-
-Este é meu portfolio pessoal desenvolvido com React, TypeScript e Vite. Uma landing page moderna e responsiva que apresenta minhas habilidades, projetos e experiência profissional.
-
-## 🎨 Características
-
-- **Design Moderno**: Interface limpa e profissional com animações suaves
-- **Tema Escuro/Claro**: Sistema de alternância entre temas com persistência local (padrão: escuro)
-- **Cor Principal**: Laranja (#ff8c00) como cor de destaque
-- **Totalmente Responsivo**: Otimizado para todos os dispositivos
-- **Performance**: Construído com Vite para carregamento rápido
-
-## 📋 Seções
-
-- **Sobre**: Introdução e links para redes sociais
-- **Conhecimentos**: Skills técnicas organizadas por categoria
-- **Projetos**: Showcase de projetos desenvolvidos
-- **Carreira**: Linha do tempo da experiência profissional
-- **Contato**: Informações de contato
-
-## 🚀 Tecnologias
+## Tecnologias utilizadas
 
 - React 19
 - TypeScript
 - Vite
-- Lucide React (ícones)
-- CSS Modules
+- CSS customizado
+- Lucide React
+- GitHub Pages para deploy
 
-## 💻 Como usar
+## Funcionalidades
+
+- Layout responsivo
+- Tema claro e escuro
+- Efeito de typing em introdução
+- Seções: Home, Skills, Projects, Career e Contact
+- Links para GitHub, LinkedIn e email
+- Estrutura pronta para personalização de conteúdo
+
+## Estrutura do projeto
 
 ```bash
-# Instalar dependências
-yarn
-
-# Rodar em desenvolvimento
-yarn dev
-
-# Build para produção
-yarn build
-
-# Preview do build
-yarn preview
+src/
+├── App.tsx
+├── main.tsx
+├── index.css
+├── App.css
+├── components/
+│   ├── Header.tsx
+│   ├── Hero.tsx
+│   ├── Skills.tsx
+│   ├── Projects.tsx
+│   ├── Career.tsx
+│   ├── Contact.tsx
+│   └── Footer.tsx
+├── contexts/
+│   └── ThemeContext.tsx
+├── styles/
+│   ├── Header.css
+│   ├── Hero.css
+│   ├── Skills.css
+│   ├── Projects.css
+│   ├── Career.css
+│   ├── Contact.css
+│   └── Footer.css
+└── assets/
 ```
 
-## 📝 Personalização
+## Como executar localmente
 
-Edite os componentes em `src/components/` para adicionar suas próprias informações:
-- Dados pessoais no `Hero.tsx`
-- Skills no `Skills.tsx`
-- Projetos no `Projects.tsx`
-- Experiências no `Career.tsx`
-- Informações de contato no `Contact.tsx`
+1. Clone o repositório:
 
----
-
-_Este projeto foi gerado com auxílio de IA_
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/Gilbertosr5/MyPortfolio.git
 ```
+
+2. Acesse a pasta do projeto:
+
+```bash
+cd MyPortfolio
+```
+
+3. Instale as dependências:
+
+```bash
+npm install
+```
+
+4. Inicie o ambiente de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+5. Acesse no navegador:
+
+```bash
+http://localhost:5173
+```
+
+## Build para produção
+
+```bash
+npm run build
+```
+
+Para visualizar o build gerado:
+
+```bash
+npm run preview
+```
+
+## Deploy
+
+O projeto está preparado para deploy em GitHub Pages com os scripts configurados em package.json.
+
+```bash
+npm run deploy
+```
+
+## Personalização
+
+Para adaptar o portfólio ao seu perfil, edite os componentes dentro da pasta src/components:
+
+- Hero.tsx — apresentação inicial e redes sociais
+- Skills.tsx — tecnologias e competências
+- Projects.tsx — projetos exibidos no portfólio
+- Career.tsx — experiência profissional
+- Contact.tsx — informações de contato
+
+## Autor
+
+Gilberto Silva Rodrigues
+
+## Licença
+
+Este projeto é de uso pessoal e pode ser adaptado para outros perfis e portfólios.
