@@ -1,47 +1,50 @@
 import { Briefcase } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
+import { revealDelay } from '../hooks/useReveal';
 import '../styles/Career.css';
 
 export const Career = () => {
-  const experiences = [
-    {
-      company: 'IACIT',
-      position: 'Desenvolvedor FrontEnd Jr',
-      period: 'mar/2026 - Atual',
-      description: 'Desenvolvendo novas demandas do projeto da equipe, e também atuando nas soluções dos bugs.'
-    },
-    {
-      company: 'ConnectCorp.IT',
-      position: 'Desenvolvedor Mobile',
-      period: 'mai/2024 - mar/2026',
-      description: 'Responsável pelo setor mobile da empresa, criando e prestando manutenções para seus apps.'
-    },
-    {
-      company: 'ConnectCorp.IT',
-      position: 'Suporte',
-      period: 'jun/2023 - mai/2024',
-      description: 'Prestando suporte aos clientes dos produtos da empresa.'
-    }
-  ];
+  const { t } = useLanguage();
 
   return (
-    <section className="career" id="carreira">
-      <div className="career-container">
-        <h2 className="section-title">Carreira</h2>
-        <div className="timeline">
-          {experiences.map((exp, index) => (
-            <div key={index} className="timeline-item">
-              <div className="timeline-icon">
-                <Briefcase size={24} />
+    <section className="section career" id="carreira">
+      <div className="container">
+        <header className="section-header reveal">
+          <span className="section-eyebrow">{t.career.eyebrow}</span>
+          <h2 className="section-title">
+            {t.career.titleStart} <span className="gradient-text">{t.career.titleHighlight}</span>
+          </h2>
+          <p className="section-subtitle">{t.career.subtitle}</p>
+        </header>
+
+        <ol className="timeline">
+          {t.career.experiences.map((exp, index) => (
+            <li key={index} className="timeline-item reveal" style={revealDelay(index * 100)}>
+              <div className={`timeline-marker ${exp.current ? 'current' : ''}`}>
+                <Briefcase size={16} />
               </div>
-              <div className="timeline-content">
-                <h3 className="timeline-title">{exp.position}</h3>
-                <h4 className="timeline-company">{exp.company}</h4>
-                <p className="timeline-period">{exp.period}</p>
+
+              <div className="card timeline-card">
+                <div className="timeline-header">
+                  <div>
+                    <h3 className="timeline-title">{exp.position}</h3>
+                    <p className="timeline-company">{exp.company}</p>
+                  </div>
+                  <span className={`timeline-period ${exp.current ? 'current' : ''}`}>
+                    {exp.current && <span className="pulse-dot" />}
+                    {exp.period}
+                  </span>
+                </div>
                 <p className="timeline-description">{exp.description}</p>
+                <div className="timeline-tags">
+                  {exp.tags.map(tag => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

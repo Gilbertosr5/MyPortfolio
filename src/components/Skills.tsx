@@ -1,55 +1,80 @@
 import { Code2, Database, Layout, Server, Smartphone, Wrench } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
+import { handleGlowMove, revealDelay } from '../hooks/useReveal';
 import '../styles/Skills.css';
 
+const skillsCategories = [
+  {
+    key: 'languages',
+    icon: Code2,
+    skills: ['JavaScript', 'TypeScript', 'Python', 'Java', 'SQL', 'HTML', 'CSS'],
+    wide: true,
+  },
+  { key: 'mobile', icon: Smartphone, skills: ['React Native', 'Expo'] },
+  { key: 'frontend', icon: Layout, skills: ['React', 'Vite', 'Bootstrap', 'Sass'] },
+  { key: 'backend', icon: Server, skills: ['Node.js', 'Express', 'REST APIs'] },
+  { key: 'database', icon: Database, skills: ['MySQL', 'SQL', 'Firebase'] },
+  {
+    key: 'tools',
+    icon: Wrench,
+    skills: ['VS Code', 'Git & GitHub', 'GitHub Copilot', 'Windows & macOS'],
+    wide: true,
+  },
+] as const;
+
+const marquee = ['React', 'TypeScript', 'React Native', 'Node.js', 'JavaScript', 'Python', 'Java', 'MySQL', 'Git', 'Vite', 'Sass', 'Express'];
+
 export const Skills = () => {
-  const skillsCategories = [
-    {
-      icon: <Code2 size={32} />,
-      title: 'Linguagens',
-      skills: ['JavaScript / TypeScript', 'Python', 'Java', 'SQL', 'HTML', 'CSS']
-    },
-    {
-      icon: <Layout size={32} />,
-      title: 'Frontend Web',
-      skills: ['ReactJS', 'Bootstrap', 'Sass']
-    },
-    {
-      icon: <Smartphone size={32} />,
-      title: 'Mobile',
-      skills: ['React Native']
-    },
-    {
-      icon: <Server size={32} />,
-      title: 'Backend',
-      skills: ['NodeJS', 'Express', 'REST APIs']
-    },
-    {
-      icon: <Database size={32} />,
-      title: 'Banco de Dados',
-      skills: ['MySQL', 'SQL']
-    },
-    {
-      icon: <Wrench size={32} />,
-      title: 'Ferramentas',
-      skills: ['VSCode', 'Git e GitHub', 'GitHub Copilot', 'Windows e MacOS']
-    }
-  ];
+  const { t } = useLanguage();
 
   return (
-    <section className="skills" id="conhecimentos">
-      <div className="skills-container">
-        <h2 className="section-title">Conhecimentos</h2>
+    <section className="section skills" id="conhecimentos">
+      <div className="container">
+        <header className="section-header reveal">
+          <span className="section-eyebrow">{t.skills.eyebrow}</span>
+          <h2 className="section-title">
+            {t.skills.titleStart} <span className="gradient-text">{t.skills.titleHighlight}</span>
+          </h2>
+          <p className="section-subtitle">{t.skills.subtitle}</p>
+        </header>
+
         <div className="skills-grid">
-          {skillsCategories.map((category, index) => (
-            <div key={index} className="skill-card">
-              <div className="skill-icon">{category.icon}</div>
-              <h3 className="skill-title">{category.title}</h3>
-              <ul className="skill-list">
-                {category.skills.map((skill, i) => (
-                  <li key={i}>{skill}</li>
-                ))}
-              </ul>
-            </div>
+          {skillsCategories.map((category, index) => {
+            const { icon: Icon, key, skills } = category;
+            const { title, description } = t.skills.categories[key];
+            const wide = 'wide' in category && category.wide;
+
+            return (
+              <article
+                key={key}
+                className={`card card-glow skill-card reveal ${wide ? 'skill-card-wide' : ''}`}
+                style={revealDelay(index * 70)}
+                onMouseMove={handleGlowMove}
+              >
+                <div className="skill-head">
+                  <div className="skill-icon">
+                    <Icon size={22} />
+                  </div>
+                  <div>
+                    <h3 className="skill-title">{title}</h3>
+                    <p className="skill-description">{description}</p>
+                  </div>
+                </div>
+                <ul className="skill-list">
+                  {skills.map(skill => (
+                    <li key={skill}>{skill}</li>
+                  ))}
+                </ul>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="marquee" aria-hidden="true">
+        <div className="marquee-track">
+          {[...marquee, ...marquee].map((item, i) => (
+            <span key={i}>{item}</span>
           ))}
         </div>
       </div>
